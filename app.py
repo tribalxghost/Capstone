@@ -21,7 +21,7 @@ TOKEN_INFO = 'token_info'
 bcrypt = Bcrypt()
 app = Flask(__name__)
 app.debug = True
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
 #postgres://localhost:dqVc4Yx114xV1VdMZ5nGkTP0kP4pDcWz@dpg-ck5pqa5drqvc73dauddg-a/spotify_db
 app.config['SECRET_KEY'] = SECRET
 
