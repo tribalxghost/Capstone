@@ -131,6 +131,7 @@ def redirect_page():
             return redirect(url_for('register', external = True))
     except:
         print("Exception")
+        return redirect(url_for('register', external = True))
 
 # Get user's customized page and show top 10 releases for user
 @app.route('/user')
