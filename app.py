@@ -4,7 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_bcrypt import Bcrypt
 from model import db, connect_db
 import time
-from secret import clientId, api, DATABASE, SECRET
+# from secret import clientId, api, DATABASE, SECRET
 from forms import Register, Login, PostForm, PlaylistForm, UpdatePlaylist, UpdatePost, UpdateProfile
 from models.user import User, Post
 from models.playlist import Playlist
@@ -20,9 +20,9 @@ TOKEN_INFO = 'token_info'
 bcrypt = Bcrypt()
 app = Flask(__name__)
 app.debug = True
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE")
 #postgres://localhost:dqVc4Yx114xV1VdMZ5nGkTP0kP4pDcWz@dpg-ck5pqa5drqvc73dauddg-a/spotify_db
-app.config['SECRET_KEY'] = SECRET
+app.config['SECRET_KEY'] = os.environ.get("SECRET")
 
 
 with app.app_context():
@@ -31,13 +31,13 @@ with app.app_context():
 
 
 # Convert client id to bytes then convert to base64
-
+clientid = os.environ.get("CLIENTID")
 
 client_bytes = clientId.encode("ascii")
 base64_bytes = base64.b64encode(client_bytes)
 
 # CONVERT Client Secret to bytes then base64
-
+api = os.environ.get("API")
 
 api_bytes = api.encode("ascii")
 base64_api = base64.b64encode(api_bytes)
