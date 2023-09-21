@@ -1,4 +1,4 @@
-apturl==0.5.2
+
 asttokens==2.2.1
 async-timeout==4.0.3
 backcall==0.2.0
