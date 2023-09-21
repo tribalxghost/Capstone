@@ -7,7 +7,6 @@ import time
 from secret import clientId, api, DATABASE, SECRET
 from forms import Register, Login, PostForm, PlaylistForm, UpdatePlaylist, UpdatePost, UpdateProfile
 from models.user import User, Post
-# from models.posts import Post
 from models.playlist import Playlist
 import base64
 import spotipy
