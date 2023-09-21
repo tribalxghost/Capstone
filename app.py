@@ -4,7 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_bcrypt import Bcrypt
 from model import db, connect_db
 import time
-from secret import clientId, api, DATABASE, SECRET
+# from secret import clientId, api, DATABASE, SECRET
 from forms import Register, Login, PostForm, PlaylistForm, UpdatePlaylist, UpdatePost, UpdateProfile
 from models.user import User, Post
 from models.playlist import Playlist
