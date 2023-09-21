@@ -4,7 +4,6 @@ async-timeout==4.0.3
 backcall==0.2.0
 bcrypt==3.2.0
 blinker==1.6.2
-Brlapi==0.8.3
 certifi==2022.12.7
 cffi==1.15.1
 chardet==4.0.0
