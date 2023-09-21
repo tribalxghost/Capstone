@@ -4,7 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_bcrypt import Bcrypt
 from model import db, connect_db
 import time
-# from secret import clientId, api, DATABASE, SECRET
+from secret import clientId, api, DATABASE, SECRET
 from forms import Register, Login, PostForm, PlaylistForm, UpdatePlaylist, UpdatePost, UpdateProfile
 from models.user import User, Post
 from models.playlist import Playlist
@@ -15,7 +15,8 @@ from spotipy.oauth2 import SpotifyOAuth
 
 
 TOKEN_INFO = 'token_info'
-
+clientId = os.environ.get("CLIENTID")
+api = os.environ.get("API")
 
 bcrypt = Bcrypt()
 app = Flask(__name__)
@@ -29,15 +30,14 @@ with app.app_context():
     connect_db(app)
     db.create_all()
 
-
 # Convert client id to bytes then convert to base64
-clientid = os.environ.get("CLIENTID")
+
 
 client_bytes = clientId.encode("ascii")
 base64_bytes = base64.b64encode(client_bytes)
 
 # CONVERT Client Secret to bytes then base64
-api = os.environ.get("API")
+
 
 api_bytes = api.encode("ascii")
 base64_api = base64.b64encode(api_bytes)
