@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,200"
+    />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <title>{% block title %}TITLE GOES HERE{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a class="avatar-wrapper" href="#">
+        <img
+          class="avatar"
+          src="https://media.raritysniper.com/doodles/9659-600.webp?cacheId=2"
+          alt=""
+        />
+      </a>
+      {% if user %}
+      <h1 class="head-title"><a href="/profile/{{user.username}}">{{user.username}}</a></h1>
+      {% endif %}
+      <div class="login-wrapper">
+        {% if 'user_id' in session %}
+        <a class="btn" href="/user">Home</a>
+        <a class="btn" href="/logout">Logout</a>
+        {% else %}
+        <a href="/spot" class="btn">REGISTER</a>
+        <a href="/login" class="btn">LOGIN</a>
+        {% endif %}
+      </div>
+    </nav>
+    {% for msg in get_flashed_messages() %}
+    <p>{{ msg }}</p>
+    {% endfor %} {% block content %} {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="static/index.js"></script>
+  </body>
+  <footer>
+    <h3>Created By Andrew Dawson</h3>
+  </footer>
+</html>

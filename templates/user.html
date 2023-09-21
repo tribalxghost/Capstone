@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{%block content%}
+<div class="flex-wrapper">
+<div class="new-releases">
+<ul class="new_releases">
+<h2>New Releases!</h2>
+{% for album in new_albums %}
+    <div class="new-albums">
+    <li><img src={{album['images'][0]['url']}} ></li>
+    </div>
+    {% endfor %}
+</ul>
+
+</div>
+
+<div class="user-post">
+    <a class="create-post bg-c" href="/register-post">
+    Create a post
+    </a>
+    <ul>
+        {% for post in all_post %}
+    <li class="br">
+        <div class="card bg-c ">
+            <div class="comment-form">
+                <span class="comment-submit-wrapper">
+                <form action="" >
+                    <input type="text" placeholder="Comment">
+                </form>
+                <a href="/add-comment">submit</a>
+            </span>
+            </div>
+            {% if user.username == post.username%}
+            <a href="/update-post/{{post.id}}"><span class="material-symbols-outlined mg-sm">
+                more_horiz
+                </span></a>
+            {% endif %}
+            <img class="card-image" src="{{post.image}}" alt="">
+            <div class="card-description">
+                <div class="post-header">
+                <div class="avatar-wrapper mg-sm">
+                <a href="/profile/{{post.username}}">
+            <img class="avatar" src="{{f.getUser(post.username).avatar}}" alt="">
+            </a>
+
+        
+        </div>
+
+
+        {% if user.username != f.getUser(post.username).username %}
+        {% if user.is_following(f.getUser(post.username)) %}
+        <form method="POST"
+              action="/unfollow/{{post.username}}">
+          <button class="btn fllw-btn">Unfollow</button>
+        </form>
+      {% else %}
+        <form method="POST" action="/follow/{{post.username}}">
+          <button class="btn fllw-btn">Follow</button>
+        </form>
+      {% endif %}
+      {% else%}
+
+        {% endif %}
+
+
+        </div>
+            <h3 class="card-title mg-sm">{{post.username}}</h3>
+            <p class="mg-sm">{{post.post}}</p>
+            
+            <button class="mg-sm" href="post/{{post.id}}/comments">View Comments - Coming Soon!</button>
+            
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+
+</div>
+
+<div class="user-playlist">
+<h2>DISCOVER PLAYLIST</h2>
+<a href="/register-playlist">Create</a>
+{% if all_playlist %}
+<ul>
+{% for playlist in all_playlist %}
+    <li class="fla">
+        {% if user.username == playlist.username %}
+        <a href="/update-playlist/{{playlist.playlist_id}}" class="playlist-wrapper">
+            <h3>{{ playlist.name }}</h3>
+            <img src="{{playlist.image}}" alt="" class="play-img">
+        </a>
+        {%else%}
+        <div>
+        <h3>{{ playlist.name }}</h3>
+        <img src="{{playlist.image}}" alt="" class="play-img">
+        </div>
+        {%endif%}
+        
+    </li>
+    
+    
+    {% endfor %}
+</ul>
+
+{% endif %}
+</div>
+</div>
+{% endblock %}

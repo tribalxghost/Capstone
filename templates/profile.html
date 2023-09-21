@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="profile-wrapper">
+<div class="p-card">
+    <div class="profile-description">
+    <img class="profile-avatar" src="{{user.avatar}}" alt="">
+    <div class="meta-description">
+    <h3 class="profile-title">{{user.username}}</h3>
+    <div>
+        <h3 class="followers">Followers</h3>
+        <p>{{followercount}}</p>
+    </div>
+    <div class="following">
+    <h3 class="following">Following</h3>
+    <p>{{followingcount}}</p>
+    {% if u.username == user.username%}
+        <a href="/update-profile">Update</a>
+    {% endif %}
+</div>
+    </div>
+    </div>
+<div class="p-descr">
+<h2>Posts</h2>
+<h2>Playlist</h2>
+</div>
+    <div class="profile-card">
+        <ul class="profile-post">
+        {% for post in posts%}
+        <li class="playlist-wrapper" >
+        <img class="profile-post-image" src="{{post.image}}" alt="">
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="playlist-wrapper">
+            <ul class="profile-playlists">
+            {% for playlist in playlists%}
+            <li>
+                <img class="playlist-image" src="{{playlist.image}}" alt="">
+            </li>    
+                {%endfor%}
+        </ul>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Post{% endblock %}
+
+{% block content %}
+
+
+
+    <form class="form" action="/update-post/{{post.id}}" method="POST">
+        {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+    <div class="form-wrapper">
+      <h1>Edit Post</h1>
+      <img src="{{post.image}}" alt="" class="form-image">
+      <p>{{post.post}}</p>
+        {% for field in form
+               if field.widget.input_type != 'hidden' %}
+               <p>
+                <div class="inp">
+                {{ field.label(class_="field-label") }}
+                {{ field(class_="field") }}
+              </div>
+                {% for error in field.errors %}
+                  {{ error }}
+                {% endfor %}
+              </p>
+          
+            {% endfor %}
+            <button>Submit</button>
+            <a href="/user"class="cancel">Cancel</a>
+            <a href="/delete-post/{{post.id}}"class="del">DELETE</a>
+          </div>
+    </form>
+
+    
+  
+
+{% endblock %}

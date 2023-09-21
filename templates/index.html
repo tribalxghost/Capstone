@@ -1,0 +1,14 @@
+{%extends 'base.html' %}
+
+{% block content %}
+<h1>WELCOME</h1>
+
+<div class="form">
+{% for msg in get_flashed_messages() %}
+  <p>{{ msg }}</p>
+{% endfor %}
+{% if 'user_id' in session %}
+{% endif %}
+</div>
+{% endblock %}
+
