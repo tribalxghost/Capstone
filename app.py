@@ -53,7 +53,7 @@ def home():
 def get_data():
     url = "https://accounts.spotify.com/authorize?"
     scope = 'user-read-private user-read-email playlist-modify-public playlist-modify-private'
-    return redirect(f"https://accounts.spotify.com/authorize?client_id={clientId}&response_type=code&redirect_uri=http://localhost:5000/redirect&scope={scope}")
+    return redirect(f"https://accounts.spotify.com/authorize?client_id={clientId}&response_type=code&redirect_uri=https://cap-yo2q.onrender.com/redirect&scope={scope}")
 
 # Validate form and add user to the database
 @app.route('/register', methods=['GET','POST'])
