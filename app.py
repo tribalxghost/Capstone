@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, redirect, render_template, flash, session, url_for, g
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_bcrypt import Bcrypt
@@ -20,7 +21,8 @@ TOKEN_INFO = 'token_info'
 bcrypt = Bcrypt()
 app = Flask(__name__)
 app.debug = True
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+#postgres://localhost:dqVc4Yx114xV1VdMZ5nGkTP0kP4pDcWz@dpg-ck5pqa5drqvc73dauddg-a/spotify_db
 app.config['SECRET_KEY'] = SECRET
 
 
