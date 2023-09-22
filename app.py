@@ -124,6 +124,7 @@ def redirect_page():
             code = request.args.get('code')
             # Exchange auth code for access token 
             token_info = spotify_oath().get_access_token(code)
+            print(token_info)
             session[TOKEN_INFO] = token_info
             return redirect(url_for('user_page', external = True))
         else:
