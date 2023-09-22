@@ -74,7 +74,7 @@ def register():
             db.session.commit()
             flash(f"Added {user.username}")
             g = session.get('user_id')
-            return redirect(url_for('user_page'))
+            return redirect(url_for('user_page', external = True))
         else:
             session.pop('_flashes', None)
             flash("Please try again")
