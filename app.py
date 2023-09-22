@@ -119,9 +119,9 @@ def logout():
 @app.route('/redirect')
 def redirect_page():
     try:
+        code = request.args.get('code')
         if(session.get('user_id')):
             g = session.get('user_id')
-            code = request.args.get('code')
             # Exchange auth code for access token 
             token_info = spotify_oath().get_access_token(code)
             session[TOKEN_INFO] = token_info
@@ -130,10 +130,8 @@ def redirect_page():
             
             return redirect(url_for('register', external = True))
     except:
-        if(session.get('user_id')):
-            return redirect(url_for('user_page', external = True))
-        else:
-            return redirect(url_for('register', external = True))
+        print("Exception")
+        return redirect(url_for('register', external = True))
 
 # Get user's customized page and show top 10 releases for user
 @app.route('/user')
