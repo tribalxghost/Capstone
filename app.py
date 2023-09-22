@@ -74,7 +74,7 @@ def register():
             db.session.commit()
             flash(f"Added {user.username}")
             g = session.get('user_id')
-            return redirect(url_for('user_page', external = True))
+            return redirect(url_for('redirect_page'))
         else:
             session.pop('_flashes', None)
             flash("Please try again")
@@ -131,13 +131,9 @@ def redirect_page():
             return redirect(url_for('register', external = True))
     except:
         if(session.get('user_id')):
-            code = request.args.get('code')
-            # Exchange auth code for access token 
-            token_info = spotify_oath().get_access_token(code)
-            session[TOKEN_INFO] = token_info
             return redirect(url_for('user_page', external = True))
         else:
-            return redirect(url_for('logout', external = True))
+            return redirect(url_for('register', external = True))
 
 # Get user's customized page and show top 10 releases for user
 @app.route('/user')
