@@ -46,7 +46,7 @@ base64_api = base64.b64encode(api_bytes)
 @app.route('/', methods=['GET','POST'])
 def home():
     session.pop('_flashes', None)
-    return render_template('index.html')
+    return render_template('landing.html')
 
 # Send user to spotify to agree to terms and get spotify oath code for authentication
 @app.route('/spot', methods=['GET','POST'])
