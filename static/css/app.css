@@ -63,6 +63,13 @@ input{
     margin: 5px;
 }
 
+.land-wrp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .fllw-btn {
     color: #f9fcfe;
     background-color: #1677ff;
@@ -74,10 +81,65 @@ input{
     
 }
 
+.form-btn{
+    background-color: #1677ff;
+}
+
 .unfllw-btn{
     background-color: rgb(255, 85, 85) !important;
    
 }
+
+.landing-wrapper {
+    display: flex;
+    justify-content: center;
+    border-radius: 99;
+    padding: 20px;
+
+}
+
+.landing-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    
+}
+
+.land-wrp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.land-header{
+    width: 65%;
+    position: absolute;
+    
+    
+}
+
+.land-btn{
+    width: 180px;
+    height: 30px;
+    background-color: #1677ff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #1677ff solid 1px;
+    border-radius: 5px;
+    margin-left: 30px;
+    
+}
+
+.land-login{
+    margin-top: 10px;
+    margin-left: 30px;
+    color: rgb(46, 142, 226);
+}
+
 
 .navbar{
     
@@ -236,6 +298,8 @@ input{
     height: 100%;
     margin: 10px 5px;
     position: relative;
+    display: flex;
+    justify-content: center;
     
 }
 
@@ -501,8 +565,9 @@ input{
     text-align: center;
     border-radius: 10px;
     padding: 5px;
-    background-color: #f9fcfe;
+    color: #f9fcfe;
     margin-bottom: 30px;
+    background-color: #1677ff;
 
     
 }
@@ -512,6 +577,7 @@ input{
     height: 30px;
     margin-bottom: 30px;
     border-radius: 10px;
+    text-align: center;
     background-color: #f9fcfe;
 
 }
