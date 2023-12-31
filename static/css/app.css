@@ -11,6 +11,10 @@
     list-style-type: none;
     
 }
+
+html{
+    overflow: hidden;
+}
 button{
     border: none;
     background-color: transparent;
@@ -623,4 +627,113 @@ input{
     text-align: center;
     border-radius: 10px;
     margin-bottom: 30px;
+}
+
+
+@media (width <= 600px){
+    html{
+        margin: 0;
+        min-height: 100%;
+        text-align: center;
+    
+
+    }
+body{
+    min-height: 100%;
+    
+}
+
+.landing-wrapper{
+    padding: 0px;
+}
+
+
+
+    .land-wrp{
+        align-items: center;
+        height: 100vh;
+    }
+    .landImg{
+        display: none;
+    }
+
+    .land-header{
+        padding: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .land-btn{
+        margin: 30px 0px 10px 0px;
+    }
+    .land-login{
+        margin: 0px;
+    }
+
+    .h-btn{
+        display: none;
+    }
+
+    .flex-wrapper{
+        height: 100vh;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+
+    .new-releases {
+        display: none;
+    }
+    .user-post{
+        width: 100%;
+    }
+
+    .user-post ul{
+        margin-top: 30px;
+    }
+
+    .user-playlist{
+        display: none;
+    }
+
+    .create-post{
+        top:-10px;
+        width: 102%;
+        padding: 0px;
+        margin: 0px;
+        z-index: 99;
+        border-radius: 0px;
+    }
+
+    .meta-description{
+        flex-wrap: wrap;
+        font-size: 12px;
+        justify-content: space-between;
+    }
+
+    
+    .profile-description{
+        width: 100%;
+    }
+
+    .profile-post li{
+        width: 100%;
+        display: flex;
+        align-items: start;
+    }
+    .playlist-wrapper{
+        height: 100%;
+      
+    }
+
+    .profile-playlists li {
+        height: 30%;
+        padding-top: 5px;
+    }
+
+
+
 }
