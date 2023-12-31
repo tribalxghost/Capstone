@@ -24,7 +24,7 @@
   </head>
   <body>
     <nav class="navbar">
-      <a class="avatar-wrapper" href="#">
+      <a class="avatar-wrapper" href="/user">
         <img
           class="avatar"
           src="https://media.raritysniper.com/doodles/9659-600.webp?cacheId=2"
@@ -36,8 +36,8 @@
       {% endif %}
       <div class="login-wrapper">
         {% if 'user_id' in session %}
-        <a class="btn" href="/user">Home</a>
-        <a class="btn" href="/logout">Logout</a>
+        <a class="btn h-btn" href="/user">Home</a>
+        <a class="btn l-btn" href="/logout">Logout</a>
         {% else %}
         <a href="/register" class="btn">REGISTER</a>
         <a href="/login" class="btn">LOGIN</a>
