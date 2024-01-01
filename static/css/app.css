@@ -741,6 +741,13 @@ body{
         padding-top: 5px;
     }
 
+    .land-header h1{
+        display: block;
+    }
+    .land-header h2{
+        display: block;
+    }
+
 
 
 }
